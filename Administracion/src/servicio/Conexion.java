@@ -33,7 +33,7 @@ public class Conexion {
             String query = "select * from camiones";
             rs = st.executeQuery(query);
             while (rs.next()) {
-                System.out.println(rs.getString("patente") + ": " + rs.getString("carga"));
+                System.out.println(rs.getString("patente") + ": " + rs.getInt("peso") + "," + rs.getString("carga"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -51,13 +51,13 @@ public class Conexion {
     
     
 
-    public void addMessage(String patente, String carga) {
+    public void addMessage(String patente,int peso, String carga) {
         try {
             abrirConexion();
             Statement st = con.createStatement();
 
-            //String query = "INSERT INTO irc.chat (usuario, mensaje) VALUES ('user', 'message');";
-            String query = "INSERT INTO irc.camiones (patente, carga) VALUES ('" + patente + "', '" + carga + "');";
+            //String query = "INSERT INTO administracion.chat (patente, peso, carga) VALUES ('patente', 'peso', 'carga');";
+            String query = "INSERT INTO administracion.camiones (patente, peso, carga) VALUES ('" + patente + "','" + peso + "', '" + carga + "');";
 
             st.executeUpdate(query);
         } catch (SQLException e) {
