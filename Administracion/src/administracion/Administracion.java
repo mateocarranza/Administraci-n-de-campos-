@@ -10,12 +10,6 @@ public class Administracion {
         
         Inicio i = new Inicio();
         
-        
-   
-        Conexion c = new Conexion();
-
-        c.printMessages();
-        
     }
     
 }
