@@ -12,8 +12,10 @@ public class Camion extends javax.swing.JFrame {
     public Camion() {
         initComponents();
         setVisible(true);
+        setResizable(false);
 
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
