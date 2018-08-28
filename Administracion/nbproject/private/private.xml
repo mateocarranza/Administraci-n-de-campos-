@@ -3,11 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/home/lorenzo/Escritorio/git/Administraci-n-de-campos-/Administracion/src/administracion/Carga.java</file>
             <file>file:/home/lorenzo/Escritorio/git/Administraci-n-de-campos-/Administracion/src/servicio/Conexion.java</file>
             <file>file:/home/lorenzo/Escritorio/git/Administraci-n-de-campos-/Administracion/src/administracion/Inicio.java</file>
             <file>file:/home/lorenzo/Escritorio/git/Administraci-n-de-campos-/Administracion/src/administracion/Administracion.java</file>
             <file>file:/home/lorenzo/Escritorio/git/Administraci-n-de-campos-/Administracion/src/administracion/Camion.java</file>
+=======
+            <file>file:/home/mateo/GitHub/Administraci-n-de-campos-/Administracion/src/administracion/Inicio.java</file>
+            <file>file:/home/mateo/GitHub/Administraci-n-de-campos-/Administracion/src/servicio/Conexion2.java</file>
+            <file>file:/home/mateo/GitHub/Administraci-n-de-campos-/Administracion/src/administracion/Camion.java</file>
+            <file>file:/home/mateo/GitHub/Administraci-n-de-campos-/Administracion/src/administracion/Carga.java</file>
+            <file>file:/home/mateo/GitHub/Administraci-n-de-campos-/Administracion/src/administracion/Administracion.java</file>
+            <file>file:/home/mateo/GitHub/Administraci-n-de-campos-/Administracion/src/servicio/Conexion.java</file>
+>>>>>>> 015a5f2e5b31ad0fe46589ead6fd541bda65b070
         </group>
     </open-files>
 </project-private>

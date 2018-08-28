@@ -5,7 +5,7 @@ import java.sql.*;
 public class Conexion {
 
     private Connection con;
-
+    
     public void abrirConexion() {
         try {
             String user = "root";
@@ -25,15 +25,18 @@ public class Conexion {
         }
     }
 
-    public void printMessages() {
+    public String printMessages() {
         ResultSet rs = null;
+        String mensaje = null;
+        String mensajeCompleto = null;
         try {
             abrirConexion();
             Statement st = con.createStatement();
             String query = "select * from camiones";
             rs = st.executeQuery(query);
             while (rs.next()) {
-                System.out.println(rs.getString("patente") + ": " + rs.getInt("peso") + "," + rs.getString("carga"));
+                mensaje = rs.getString("patente") + ": " + rs.getInt("peso") + "kg ," + rs.getString("carga") + "\n";
+                mensajeCompleto += mensaje;
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -47,6 +50,8 @@ public class Conexion {
                 System.out.println(e.getMessage());
             }
         }
+      return mensajeCompleto;
+
     }
     
     

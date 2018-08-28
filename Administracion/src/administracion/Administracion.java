@@ -1,8 +1,6 @@
 
 package administracion;
 
-import servicio.Conexion;
-
 
 public class Administracion {
 
