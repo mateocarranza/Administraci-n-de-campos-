@@ -28,14 +28,14 @@ public class Conexion {
     public String printMessages() {
         ResultSet rs = null;
         String mensaje = null;
-        String mensajeCompleto = null;
+        String mensajeCompleto = "";
         try {
             abrirConexion();
             Statement st = con.createStatement();
             String query = "select * from camiones";
             rs = st.executeQuery(query);
             while (rs.next()) {
-                mensaje = rs.getString("patente") + ": " + rs.getInt("peso") + "kg ," + rs.getString("carga") + "\n";
+                mensaje = rs.getString("patente") + ": " + rs.getInt("peso") + "kg de " + rs.getString("carga") + "\n";  
                 mensajeCompleto += mensaje;
             }
         } catch (SQLException e) {
@@ -69,5 +69,43 @@ public class Conexion {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void agregarMnesajeTemporal(String patente, int peso, String material){
+        try {
+            abrirConexion();
+            Statement st = con.createStatement();
 
+            //String query = "INSERT INTO administracion.chat (patente, peso, carga) VALUES ('patente', 'peso', 'material');";
+            String query = "INSERT INTO temporal (patente, peso, material) VALUES ('" + patente + "','" + peso + "', '" + material + "');";
+
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void crearTabla(){
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("CREATE TABLE temporal (patente varchar(10), peso INT, material varchar(30))");  
+            stmt.execute(); 
+            stmt.close();	           
+            } catch (SQLException sqle) { 
+                 System.out.println("Error en la ejecución: " 
+                 + sqle.getErrorCode() + " " + sqle.getMessage());    
+        }
+
+    }
+    public void borrarTabla(){
+        PreparedStatement stmt = null;
+        try { 	      
+            stmt = con.prepareStatement("DROP TABLE temporal ");  
+            stmt.execute(); 
+            stmt.close();   
+            } catch (SQLException sqle) { 
+                 System.out.println("Error en la ejecución: " 
+                    + sqle.getErrorCode() + " " + sqle.getMessage());    
+        }
+    }
 }
+

@@ -9,13 +9,13 @@ public class Carga extends javax.swing.JFrame {
     public Carga() {
         initComponents();
         setVisible(true);
-<<<<<<< HEAD
+
         setResizable(false);
-=======
+
         Conexion c = new Conexion();
         String mensaje = c.printMessages();
         jTextArea1.setText(mensaje);
->>>>>>> 015a5f2e5b31ad0fe46589ead6fd541bda65b070
+
     }
 
 
