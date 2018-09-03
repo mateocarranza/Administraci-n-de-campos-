@@ -1,6 +1,9 @@
 
 package administracion;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import servicio.Conexion;
 
 public class Carga extends javax.swing.JFrame {
@@ -81,15 +84,21 @@ public class Carga extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Inicio i = new Inicio();
-        setVisible(false);
+        try {
+            // TODO add your handling code here:
+            Inicio i = new Inicio();
+        } catch (SQLException ex) {
+            Logger.getLogger(Carga.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Carga.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Camion c = new Camion();
-        setVisible(false);
+        Principal p = new Principal();
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

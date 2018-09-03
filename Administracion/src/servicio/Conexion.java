@@ -5,6 +5,7 @@ import java.sql.*;
 public class Conexion {
 
     private Connection con;
+
     
     public void abrirConexion() {
         try {
@@ -61,7 +62,7 @@ public class Conexion {
             abrirConexion();
             Statement st = con.createStatement();
 
-            //String query = "INSERT INTO administracion.chat (patente, peso, carga) VALUES ('patente', 'peso', 'carga');";
+            //String query = "INSERT INTO administracion.camiones (patente, peso, carga) VALUES ('patente', 'peso', 'carga');";
             String query = "INSERT INTO administracion.camiones (patente, peso, carga) VALUES ('" + patente + "','" + peso + "', '" + carga + "');";
 
             st.executeUpdate(query);
@@ -70,42 +71,7 @@ public class Conexion {
         }
     }
     
-    public void agregarMnesajeTemporal(String patente, int peso, String material){
-        try {
-            abrirConexion();
-            Statement st = con.createStatement();
-
-            //String query = "INSERT INTO administracion.chat (patente, peso, carga) VALUES ('patente', 'peso', 'material');";
-            String query = "INSERT INTO temporal (patente, peso, material) VALUES ('" + patente + "','" + peso + "', '" + material + "');";
-
-            st.executeUpdate(query);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void crearTabla(){
-        PreparedStatement stmt = null;
-        try {
-            stmt = con.prepareStatement("CREATE TABLE temporal (patente varchar(10), peso INT, material varchar(30))");  
-            stmt.execute(); 
-            stmt.close();	           
-            } catch (SQLException sqle) { 
-                 System.out.println("Error en la ejecución: " 
-                 + sqle.getErrorCode() + " " + sqle.getMessage());    
-        }
-
-    }
-    public void borrarTabla(){
-        PreparedStatement stmt = null;
-        try { 	      
-            stmt = con.prepareStatement("DROP TABLE temporal ");  
-            stmt.execute(); 
-            stmt.close();   
-            } catch (SQLException sqle) { 
-                 System.out.println("Error en la ejecución: " 
-                    + sqle.getErrorCode() + " " + sqle.getMessage());    
-        }
-    }
+    
 }
+     
 
