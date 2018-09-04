@@ -36,7 +36,7 @@ public class Conexion {
             String query = "select * from camiones";
             rs = st.executeQuery(query);
             while (rs.next()) {
-                mensaje = rs.getString("patente") + ": " + rs.getInt("peso") + "kg de " + rs.getString("carga") + "\n";  
+                mensaje = "el camion con patente " + rs.getString("patente") + " salio con " + rs.getInt("peso") + "kg de " + rs.getString("carga") + "\n";  
                 mensajeCompleto += mensaje;
             }
         } catch (SQLException e) {

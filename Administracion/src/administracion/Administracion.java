@@ -1,9 +1,13 @@
 
 package administracion;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import servicio.ConexionTemporal;
 
 
 public class Administracion extends javax.swing.JFrame {
@@ -13,9 +17,9 @@ public class Administracion extends javax.swing.JFrame {
 
     public Administracion() {
         initComponents();
-        setVisible(true);
+        setLocationRelativeTo(null); 
         setResizable(false);
-
+        setVisible(true);
     }
     
 
@@ -36,8 +40,10 @@ public class Administracion extends javax.swing.JFrame {
         jTxtFpesoF = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jTxtFpatente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,7 +59,7 @@ public class Administracion extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Tipo de carga:");
+        jLabel2.setText("Tipo de material:");
 
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,35 +107,51 @@ public class Administracion extends javax.swing.JFrame {
 
         jLabel5.setText("Peso final:");
 
+        jButton5.setText("salir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel1))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTxtFcarga)
-                            .addComponent(jTxtFpeso)
-                            .addComponent(jTxtFpatente)
-                            .addComponent(jTxtFpesoS)
-                            .addComponent(jTxtFpesoF)))
+                            .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTxtFpeso, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addComponent(jTxtFpesoS, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTxtFpesoF, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTxtFcarga, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTxtFpatente))
                 .addGap(35, 35, 35))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(139, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,48 +170,103 @@ public class Administracion extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtFpesoF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTxtFcarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jTxtFpesoF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2)
+                            .addComponent(jButton1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(jButton5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Camion c = new Camion();
-        c.setPatente(jTxtFpatente.getText());
-        c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
-        c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
-        c.setMaterial(jTxtFcarga.getText());
-        pesoF = c.pefoF();
-        c.cargaDeDatos();
-        c.cargaDedatosTenporal();
-        jTxtFpatente.setText("");
-        jTxtFpeso.setText("");
-        jTxtFcarga.setText("");
-        jTxtFpesoS.setText("");
-        jTxtFpesoF.setText(Integer.toString(pesoF)); 
+        if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
+            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
+        }else{
+            Camion c = new Camion();
+            c.setPatente(jTxtFpatente.getText());
+            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
+            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
+            c.setMaterial(jTxtFcarga.getText());
+            pesoF = c.pefoF();
+            c.cargaDeDatos();
+            c.cargaDedatosTenporal();
+            jTxtFpatente.setText("");
+            jTxtFpeso.setText("");
+            jTxtFcarga.setText("");
+            jTxtFpesoS.setText("");
+            jTxtFpesoF.setText(Integer.toString(pesoF));
+        }
+         
 
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTxtFcargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFcargaActionPerformed
-        // TODO add your handling code here:
+        jTxtFcarga.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
+            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
+        }else{
+            Camion c = new Camion();
+            c.setPatente(jTxtFpatente.getText());
+            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
+            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
+            c.setMaterial(jTxtFcarga.getText());
+            pesoF = c.pefoF();
+            c.cargaDeDatos();
+            c.cargaDedatosTenporal();
+            jTxtFpatente.setText("");
+            jTxtFpeso.setText("");
+            jTxtFcarga.setText("");
+            jTxtFpesoS.setText("");
+            jTxtFpesoF.setText(Integer.toString(pesoF));
+        }
+        }                                     
+                
+        });
     }//GEN-LAST:event_jTxtFcargaActionPerformed
 
     private void jTxtFpatenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFpatenteActionPerformed
-        // TODO add your handling code here:
+        jTxtFpatente.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
+            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
+        }else{
+            Camion c = new Camion();
+            c.setPatente(jTxtFpatente.getText());
+            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
+            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
+            c.setMaterial(jTxtFcarga.getText());
+            pesoF = c.pefoF();
+            c.cargaDeDatos();
+            c.cargaDedatosTenporal();
+            jTxtFpatente.setText("");
+            jTxtFpeso.setText("");
+            jTxtFcarga.setText("");
+            jTxtFpesoS.setText("");
+            jTxtFpesoF.setText(Integer.toString(pesoF));
+        }
+        }                                     
+                
+        });
     }//GEN-LAST:event_jTxtFpatenteActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -204,7 +281,29 @@ public class Administracion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTxtFpesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFpesoActionPerformed
-
+        jTxtFpeso.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
+            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
+        }else{
+            Camion c = new Camion();
+            c.setPatente(jTxtFpatente.getText());
+            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
+            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
+            c.setMaterial(jTxtFcarga.getText());
+            pesoF = c.pefoF();
+            c.cargaDeDatos();
+            c.cargaDedatosTenporal();
+            jTxtFpatente.setText("");
+            jTxtFpeso.setText("");
+            jTxtFcarga.setText("");
+            jTxtFpesoS.setText("");
+            jTxtFpesoF.setText(Integer.toString(pesoF));
+        }
+        }                                     
+                
+        });
     }//GEN-LAST:event_jTxtFpesoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -220,12 +319,47 @@ public class Administracion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTxtFpesoSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFpesoSActionPerformed
-        // TODO add your handling code here:
+        jTxtFpesoS.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
+            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
+        }else{
+            Camion c = new Camion();
+            c.setPatente(jTxtFpatente.getText());
+            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
+            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
+            c.setMaterial(jTxtFcarga.getText());
+            pesoF = c.pefoF();
+            c.cargaDeDatos();
+            c.cargaDedatosTenporal();
+            jTxtFpatente.setText("");
+            jTxtFpeso.setText("");
+            jTxtFcarga.setText("");
+            jTxtFpesoS.setText("");
+            jTxtFpesoF.setText(Integer.toString(pesoF));
+        }
+        }                                     
+                
+        });
     }//GEN-LAST:event_jTxtFpesoSActionPerformed
 
     private void jTxtFpesoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFpesoFActionPerformed
 
     }//GEN-LAST:event_jTxtFpesoFActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        ConexionTemporal c = new ConexionTemporal();
+        int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+        if (resp == 0){
+            try {
+                c.borrarTabla(ConexionTemporal.obtener());
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            dispose();
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     
     
@@ -235,6 +369,7 @@ public class Administracion extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

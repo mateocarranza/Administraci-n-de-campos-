@@ -45,13 +45,13 @@ private static Connection con = null;
   
 
     }
-    public String imprimirMensajeTemporal(Connection cnx) {
+    public String imprimirMensajeTemporal() {
         ResultSet rs = null;
         String mensaje;
         String mensajeCompleto = "";
         try {
 
-            Statement st = cnx.createStatement();
+            Statement st = con.createStatement();
             String query = "select * from temporal";
             rs = st.executeQuery(query);
             while (rs.next()) {
@@ -65,7 +65,7 @@ private static Connection con = null;
                 if (rs != null && !rs.isClosed()) {
                     rs.close();
                 }
-                cerrar();
+               
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
