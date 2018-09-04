@@ -194,60 +194,18 @@ public class Administracion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
-            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
-        }else{
-            Camion c = new Camion();
-            c.setPatente(jTxtFpatente.getText());
-            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
-            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
-            c.setMaterial(jTxtFcarga.getText());
-            if(c.getPeso() > c.getPesoS()){
-                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
-            }else{
-               pesoF = c.pefoF();
-                c.cargaDeDatos();
-                c.cargaDedatosTenporal();
-                jTxtFpatente.setText("");
-                jTxtFpeso.setText("");
-                jTxtFcarga.setText("");
-                jTxtFpesoS.setText("");
-                jTxtFpesoF.setText(Integer.toString(pesoF)); 
-            }
-            
-        }
-         
-
-        
-        
+        control();
+          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTxtFcargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFcargaActionPerformed
         jTxtFcarga.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
-            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
-        }else{
-            Camion c = new Camion();
-            c.setPatente(jTxtFpatente.getText());
-            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
-            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
-            c.setMaterial(jTxtFcarga.getText());
-            if(c.getPeso() > c.getPesoS()){
-                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
-            }else{
-               pesoF = c.pefoF();
-                c.cargaDeDatos();
-                c.cargaDedatosTenporal();
-                jTxtFpatente.setText("");
-                jTxtFpeso.setText("");
-                jTxtFcarga.setText("");
-                jTxtFpesoS.setText("");
-                jTxtFpesoF.setText(Integer.toString(pesoF)); 
-            }
-            
-        }
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    control();
+                }
+                
         }                                     
                 
         });
@@ -257,28 +215,10 @@ public class Administracion extends javax.swing.JFrame {
         jTxtFpatente.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
-            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
-        }else{
-            Camion c = new Camion();
-            c.setPatente(jTxtFpatente.getText());
-            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
-            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
-            c.setMaterial(jTxtFcarga.getText());
-            if(c.getPeso() > c.getPesoS()){
-                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
-            }else{
-               pesoF = c.pefoF();
-                c.cargaDeDatos();
-                c.cargaDedatosTenporal();
-                jTxtFpatente.setText("");
-                jTxtFpeso.setText("");
-                jTxtFcarga.setText("");
-                jTxtFpesoS.setText("");
-                jTxtFpesoF.setText(Integer.toString(pesoF)); 
-            }
-            
-        }
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    control();
+                }
+                
         }                                     
                 
         });
@@ -299,28 +239,10 @@ public class Administracion extends javax.swing.JFrame {
         jTxtFpeso.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
-            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
-        }else{
-            Camion c = new Camion();
-            c.setPatente(jTxtFpatente.getText());
-            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
-            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
-            c.setMaterial(jTxtFcarga.getText());
-            if(c.getPeso() > c.getPesoS()){
-                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
-            }else{
-               pesoF = c.pefoF();
-                c.cargaDeDatos();
-                c.cargaDedatosTenporal();
-                jTxtFpatente.setText("");
-                jTxtFpeso.setText("");
-                jTxtFcarga.setText("");
-                jTxtFpesoS.setText("");
-                jTxtFpesoF.setText(Integer.toString(pesoF)); 
-            }
-            
-        }
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    control();
+                }
+                
         }                                     
                 
         });
@@ -342,28 +264,10 @@ public class Administracion extends javax.swing.JFrame {
         jTxtFpesoS.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
-            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
-        }else{
-            Camion c = new Camion();
-            c.setPatente(jTxtFpatente.getText());
-            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
-            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
-            c.setMaterial(jTxtFcarga.getText());
-            if(c.getPeso() > c.getPesoS()){
-                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
-            }else{
-               pesoF = c.pefoF();
-                c.cargaDeDatos();
-                c.cargaDedatosTenporal();
-                jTxtFpatente.setText("");
-                jTxtFpeso.setText("");
-                jTxtFcarga.setText("");
-                jTxtFpesoS.setText("");
-                jTxtFpesoF.setText(Integer.toString(pesoF)); 
-            }
-            
-        }
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    control();
+                }
+                
         }                                     
                 
         });
@@ -386,7 +290,30 @@ public class Administracion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    
+    public void control(){
+        if (jTxtFcarga.getText().equals("") | (jTxtFpatente.getText().equals("") | (jTxtFpeso.getText().equals("") | jTxtFpesoS.getText().equals(""))) ){
+            JOptionPane.showMessageDialog(null, "Debes cargar todos los datos antes de ingresar", "error", JOptionPane.DEFAULT_OPTION);
+        }else{
+            Camion c = new Camion();
+            c.setPatente(jTxtFpatente.getText());
+            c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
+            c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
+            c.setMaterial(jTxtFcarga.getText());
+            if(c.getPeso() > c.getPesoS()){
+                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
+            }else{
+               pesoF = c.pefoF();
+                c.cargaDeDatos();
+                c.cargaDedatosTenporal();
+                jTxtFpatente.setText("");
+                jTxtFpeso.setText("");
+                jTxtFcarga.setText("");
+                jTxtFpesoS.setText("");
+                jTxtFpesoF.setText(Integer.toString(pesoF)); 
+            }
+            
+        }
+    }
     
     
 
