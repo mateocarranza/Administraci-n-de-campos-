@@ -202,14 +202,19 @@ public class Administracion extends javax.swing.JFrame {
             c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
             c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
             c.setMaterial(jTxtFcarga.getText());
-            pesoF = c.pefoF();
-            c.cargaDeDatos();
-            c.cargaDedatosTenporal();
-            jTxtFpatente.setText("");
-            jTxtFpeso.setText("");
-            jTxtFcarga.setText("");
-            jTxtFpesoS.setText("");
-            jTxtFpesoF.setText(Integer.toString(pesoF));
+            if(c.getPeso() > c.getPesoS()){
+                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
+            }else{
+               pesoF = c.pefoF();
+                c.cargaDeDatos();
+                c.cargaDedatosTenporal();
+                jTxtFpatente.setText("");
+                jTxtFpeso.setText("");
+                jTxtFcarga.setText("");
+                jTxtFpesoS.setText("");
+                jTxtFpesoF.setText(Integer.toString(pesoF)); 
+            }
+            
         }
          
 
@@ -229,14 +234,19 @@ public class Administracion extends javax.swing.JFrame {
             c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
             c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
             c.setMaterial(jTxtFcarga.getText());
-            pesoF = c.pefoF();
-            c.cargaDeDatos();
-            c.cargaDedatosTenporal();
-            jTxtFpatente.setText("");
-            jTxtFpeso.setText("");
-            jTxtFcarga.setText("");
-            jTxtFpesoS.setText("");
-            jTxtFpesoF.setText(Integer.toString(pesoF));
+            if(c.getPeso() > c.getPesoS()){
+                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
+            }else{
+               pesoF = c.pefoF();
+                c.cargaDeDatos();
+                c.cargaDedatosTenporal();
+                jTxtFpatente.setText("");
+                jTxtFpeso.setText("");
+                jTxtFcarga.setText("");
+                jTxtFpesoS.setText("");
+                jTxtFpesoF.setText(Integer.toString(pesoF)); 
+            }
+            
         }
         }                                     
                 
@@ -255,14 +265,19 @@ public class Administracion extends javax.swing.JFrame {
             c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
             c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
             c.setMaterial(jTxtFcarga.getText());
-            pesoF = c.pefoF();
-            c.cargaDeDatos();
-            c.cargaDedatosTenporal();
-            jTxtFpatente.setText("");
-            jTxtFpeso.setText("");
-            jTxtFcarga.setText("");
-            jTxtFpesoS.setText("");
-            jTxtFpesoF.setText(Integer.toString(pesoF));
+            if(c.getPeso() > c.getPesoS()){
+                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
+            }else{
+               pesoF = c.pefoF();
+                c.cargaDeDatos();
+                c.cargaDedatosTenporal();
+                jTxtFpatente.setText("");
+                jTxtFpeso.setText("");
+                jTxtFcarga.setText("");
+                jTxtFpesoS.setText("");
+                jTxtFpesoF.setText(Integer.toString(pesoF)); 
+            }
+            
         }
         }                                     
                 
@@ -292,14 +307,19 @@ public class Administracion extends javax.swing.JFrame {
             c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
             c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
             c.setMaterial(jTxtFcarga.getText());
-            pesoF = c.pefoF();
-            c.cargaDeDatos();
-            c.cargaDedatosTenporal();
-            jTxtFpatente.setText("");
-            jTxtFpeso.setText("");
-            jTxtFcarga.setText("");
-            jTxtFpesoS.setText("");
-            jTxtFpesoF.setText(Integer.toString(pesoF));
+            if(c.getPeso() > c.getPesoS()){
+                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
+            }else{
+               pesoF = c.pefoF();
+                c.cargaDeDatos();
+                c.cargaDedatosTenporal();
+                jTxtFpatente.setText("");
+                jTxtFpeso.setText("");
+                jTxtFcarga.setText("");
+                jTxtFpesoS.setText("");
+                jTxtFpesoF.setText(Integer.toString(pesoF)); 
+            }
+            
         }
         }                                     
                 
@@ -330,14 +350,19 @@ public class Administracion extends javax.swing.JFrame {
             c.setPeso(Integer.parseInt(jTxtFpeso.getText()));
             c.setPesoS(Integer.parseInt(jTxtFpesoS.getText()));
             c.setMaterial(jTxtFcarga.getText());
-            pesoF = c.pefoF();
-            c.cargaDeDatos();
-            c.cargaDedatosTenporal();
-            jTxtFpatente.setText("");
-            jTxtFpeso.setText("");
-            jTxtFcarga.setText("");
-            jTxtFpesoS.setText("");
-            jTxtFpesoF.setText(Integer.toString(pesoF));
+            if(c.getPeso() > c.getPesoS()){
+                JOptionPane.showMessageDialog(null, "el peso de salida debe ser mayor que el de entrada", "error", JOptionPane.DEFAULT_OPTION);
+            }else{
+               pesoF = c.pefoF();
+                c.cargaDeDatos();
+                c.cargaDedatosTenporal();
+                jTxtFpatente.setText("");
+                jTxtFpeso.setText("");
+                jTxtFcarga.setText("");
+                jTxtFpesoS.setText("");
+                jTxtFpesoF.setText(Integer.toString(pesoF)); 
+            }
+            
         }
         }                                     
                 
